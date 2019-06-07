@@ -22,10 +22,10 @@ export class CadastroItemPage {
   'desc': '',
    'data': '',
    'local':'',
-  'fotos': '',
+  'fotos': 'img1.png, img2.png, img3.png',
   'perdido':'', 
-  'fileToUpload': '',
-  'imgPath' :'',
+  //'fileToUpload': '',
+  //'imgPath' :'',
 };
   
     constructor(

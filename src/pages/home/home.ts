@@ -4,6 +4,7 @@ import { Item } from '../../modelos/ItemInterface';
 import { FirebaseServiceProvider } from '../../providers/firebase-service/firebase-service';
 import { CadastroItemPage } from '../cadastro-item/cadastro-item';
 import { EditarItemPage } from '../editar-item/editar-item';
+import { VisualizarItemPage } from '../visualizar-item/visualizar-item';
 
 @Component({
   selector: 'page-home',
@@ -30,11 +31,19 @@ export class HomePage {
   loading.dismiss();
   
   }
-  add(){
+ /* add(){
   this.navCtrl.push(CadastroItemPage);
   }
   goToSingle(item) {
     this.navCtrl.push(EditarItemPage, { 'item': item });
     }
+*/
+  selecionaItem(item : Item){
+    console.log(item);
+    this.navCtrl.push(VisualizarItemPage, {
+      itemSelecionado: item
+    }); // empilhamento de página
+  }
+
 
 }

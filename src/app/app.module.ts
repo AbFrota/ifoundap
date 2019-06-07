@@ -19,6 +19,7 @@ import { ToastrServiceProvider } from '../providers/toastr-service/toastr-servic
 import { EditarItemPage } from '../pages/editar-item/editar-item';
 import { CameraProvider } from '../providers/camera/camera';
 import { ImagePicker } from '@ionic-native/image-picker'
+import { VisualizarItemPage } from '../pages/visualizar-item/visualizar-item';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ImagePicker } from '@ionic-native/image-picker'
     AboutPage,
     ContactPage,
     HomePage,
+    VisualizarItemPage,
     EditarItemPage,
     CadastroItemPage,
     TabsPage
@@ -51,6 +53,7 @@ import { ImagePicker } from '@ionic-native/image-picker'
     EditarItemPage,
     ContactPage,
     HomePage,
+    VisualizarItemPage,
     CadastroItemPage,
     TabsPage
   ],
