@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Camera Image Upload
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row class="center">
+      <button ion-button (click)="getPicture(0)">Show Album</button>  
+  </ion-row>
+  <ion-card>
+    <img [src]="captureDataUrl" *ngIf="captureDataUrl"/>
+    <button ion-button (click)="upload()" *ngIf="captureDataUrl">Upload to Firebase!</button>
+  </ion-card>
+</ion-content>  

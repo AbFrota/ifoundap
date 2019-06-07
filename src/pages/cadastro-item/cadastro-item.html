@@ -1,0 +1,54 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Cadastro de Item</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+      <ion-item>
+          <img src="{{ imgPath }}" alt="" />
+          <button ion-button block color="dark" (click)="escolherFoto()">Escolher foto</button>
+        </ion-item>
+
+      <ion-item>
+          <ion-label>Perdido</ion-label>
+          <ion-toggle [(ngModel)]="item.perdido" ></ion-toggle>
+        </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Titulo</ion-label>
+        <ion-input type="text" [(ngModel)]="item.nome"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Descrição</ion-label>
+        <ion-input type="text" [(ngModel)]="item.desc"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Data</ion-label>
+        <ion-input type="date" [(ngModel)]="item.data" displayFormat="DD/MM/YY"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Localização</ion-label>
+        <ion-input type="text" [(ngModel)]="item.local"></ion-input>
+      </ion-item>
+      
+
+      <ion-item>
+        <ion-label fixed>Fotos</ion-label>
+        <ion-input type="text" [(ngModel)]="item.fotos"></ion-input>
+      </ion-item>
+
+
+      <button ion-button full (click)="save(item)">Criar Item</button>
+
+  </ion-list>
+
+</ion-content>

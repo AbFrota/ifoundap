@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>iFound</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+      <button ion-item *ngFor="let item of itens|async" (click)="goToSingle(item)">
+        {{item.nome}} 
+         {{item.desc}}
+      </button>
+    </ion-list>
+
+    
+  </ion-content>

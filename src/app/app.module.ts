@@ -1,0 +1,67 @@
+import { NgModule, ErrorHandler } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { MyApp } from './app.component';
+
+import { AboutPage } from '../pages/about/about';
+import { ContactPage } from '../pages/contact/contact';
+import { HomePage } from '../pages/home/home';
+import { TabsPage } from '../pages/tabs/tabs';
+
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { AngularFireModule } from 'angularfire2';
+//import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { FirebaseServiceProvider } from '../providers/firebase-service/firebase-service';
+import { CadastroItemPage } from '../pages/cadastro-item/cadastro-item';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { ToastrServiceProvider } from '../providers/toastr-service/toastr-service';
+import { EditarItemPage } from '../pages/editar-item/editar-item';
+import { CameraProvider } from '../providers/camera/camera';
+import { ImagePicker } from '@ionic-native/image-picker'
+
+@NgModule({
+  declarations: [
+    MyApp,
+    AboutPage,
+    ContactPage,
+    HomePage,
+    EditarItemPage,
+    CadastroItemPage,
+    TabsPage
+  ],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp({
+      apiKey: "AIzaSyBtsRdLyHRR0w_nHNYxW7jwrNjgtJhxT4M",
+      authDomain: "ifound-4f57e.firebaseapp.com",
+      databaseURL: "https://ifound-4f57e.firebaseio.com",
+      projectId: "ifound-4f57e",
+      storageBucket: "ifound-4f57e.appspot.com",
+      messagingSenderId: "983824202223",
+     // appId: "1:983824202223:web:93d4dc03830bfab0",
+      }),
+      AngularFireDatabaseModule,
+  ],
+  bootstrap: [IonicApp],
+  entryComponents: [
+    MyApp,
+    AboutPage,
+    EditarItemPage,
+    ContactPage,
+    HomePage,
+    CadastroItemPage,
+    TabsPage
+  ],
+  providers: [
+    StatusBar,
+    SplashScreen,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    FirebaseServiceProvider,
+    ToastrServiceProvider,
+    CameraProvider,
+    ImagePicker
+  ]
+})
+export class AppModule {}
