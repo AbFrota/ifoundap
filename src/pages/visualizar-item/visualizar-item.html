@@ -1,7 +1,7 @@
 
 <ion-header>
   <ion-navbar>
-    <ion-title>visualizarItem</ion-title>
+    <ion-title>Detalhes</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -9,17 +9,20 @@
 
   <ion-slides pager="true">
     <ion-slide >
-      <img src= "assets/imgs/img1" />
+      <img src= "assets/imgs/borrado.png" />
     </ion-slide>
   </ion-slides>
 
   
     <ion-item-group> 
-        <ion-item-divider color="light">
-            {{item.nome}}
-          
+        <ion-item-divider item-center  text-wrap color="light">
+           <h1> {{item.nome}}</h1>
+         <ion-item color="light">
+            <span item-left>{{item.data}} </span>
+         </ion-item>  
+        
         </ion-item-divider>
-        <span item-left>12 Maio 20:51 </span>
+        
         <ion-item>
             <ion-label text-wrap>{{item.desc}} </ion-label>
         </ion-item> 
@@ -35,7 +38,7 @@
         <ion-item-divider color="light">
             
               <ion-avatar item-start>
-                  <img src="assets/imgs/biavatar.png">
+                  <img src="assets/imgs/marty-avatar.png">
                 </ion-avatar>
                 <h2>Featriz Brota</h2>
                 

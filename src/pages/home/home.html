@@ -5,12 +5,23 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-list>
+ <!--   <ion-list>
       <button ion-item *ngFor="let item of itens|async" (click)="selecionaItem(item)">
-        {{item.nome}} 
+       <h1> {{item.nome}}</h1> 
          {{item.desc}}
       </button>
     </ion-list>
+-->
+    <ion-item [class.perdido]="!item.perdido" *ngFor="let item of itens|async" (click)="selecionaItem(item)" >
+      <ion-thumbnail item-start>
+      <img src="assets/imgs/borrado.png">
+      </ion-thumbnail>
+    
+     
+      <h1 text-wrap > {{item.nome}} </h1>
+      <p text-wrap> {{item.desc}}</p>
+   
+    </ion-item>
 
     
   </ion-content>

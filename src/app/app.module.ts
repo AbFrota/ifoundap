@@ -20,6 +20,11 @@ import { EditarItemPage } from '../pages/editar-item/editar-item';
 import { CameraProvider } from '../providers/camera/camera';
 import { ImagePicker } from '@ionic-native/image-picker'
 import { VisualizarItemPage } from '../pages/visualizar-item/visualizar-item';
+import { LoginPage } from '../pages/login/login';
+import { AuthProvider } from '../providers/auth/auth';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { RegisterPage } from '../pages/register/register';
+import { RegisterPageModule } from '../pages/register/register.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +32,7 @@ import { VisualizarItemPage } from '../pages/visualizar-item/visualizar-item';
     AboutPage,
     ContactPage,
     HomePage,
+    LoginPage,
     VisualizarItemPage,
     EditarItemPage,
     CadastroItemPage,
@@ -45,6 +51,8 @@ import { VisualizarItemPage } from '../pages/visualizar-item/visualizar-item';
      // appId: "1:983824202223:web:93d4dc03830bfab0",
       }),
       AngularFireDatabaseModule,
+      AngularFireAuthModule,
+      RegisterPageModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -53,6 +61,8 @@ import { VisualizarItemPage } from '../pages/visualizar-item/visualizar-item';
     EditarItemPage,
     ContactPage,
     HomePage,
+    RegisterPage,
+    LoginPage,
     VisualizarItemPage,
     CadastroItemPage,
     TabsPage
@@ -64,7 +74,8 @@ import { VisualizarItemPage } from '../pages/visualizar-item/visualizar-item';
     FirebaseServiceProvider,
     ToastrServiceProvider,
     CameraProvider,
-    ImagePicker
+    ImagePicker,
+    AuthProvider
   ]
 })
 export class AppModule {}

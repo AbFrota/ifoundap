@@ -22,7 +22,7 @@ export class CadastroItemPage {
   'desc': '',
    'data': '',
    'local':'',
-  'fotos': 'img1.png, img2.png, img3.png',
+  'fotos': 'assets/imgs/borrado.png , assets/imgs/imagem.png ',
   'perdido':'', 
   //'fileToUpload': '',
   //'imgPath' :'',
