@@ -25,6 +25,8 @@ import { AuthProvider } from '../providers/auth/auth';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { RegisterPage } from '../pages/register/register';
 import { RegisterPageModule } from '../pages/register/register.module';
+import { PerfilPage } from '../pages/perfil/perfil';
+
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { RegisterPageModule } from '../pages/register/register.module';
     ContactPage,
     HomePage,
     LoginPage,
+    PerfilPage,
     VisualizarItemPage,
     EditarItemPage,
     CadastroItemPage,
@@ -63,6 +66,7 @@ import { RegisterPageModule } from '../pages/register/register.module';
     HomePage,
     RegisterPage,
     LoginPage,
+    PerfilPage,
     VisualizarItemPage,
     CadastroItemPage,
     TabsPage

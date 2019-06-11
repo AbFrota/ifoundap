@@ -4,6 +4,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { User } from '../../modelos/user';
 import { TabsPage } from '../tabs/tabs';
 import { ToastrServiceProvider } from '../../providers/toastr-service/toastr-service';
+import { AuthProvider } from '../../providers/auth/auth';
 
 
 @IonicPage()
@@ -18,28 +19,30 @@ export class RegisterPage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              private afAuth: AngularFireAuth,
+              private afAuth: AuthProvider,
               private _alertCtrl: AlertController,
               ) {
   }
 
-  async register(user: User) {
-    try {
-      const result = await this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password);
-      if (result) {
-        this.navCtrl.setRoot(TabsPage);
-      }
-    } catch (e) {
-      console.error(e);
-      this._alertCtrl.create({
-        title:'Falha no Cadastro',
-        subTitle: e,
-        buttons : [
-          {text: 'OK'}
-        ]
-      }).present();
+ 
+  register(user:User){
+    this.afAuth.register(this.user)
+    .then((user: User) =>{
+     this.navCtrl.setRoot(TabsPage);
+     
+    })
+    .catch((e) => {
+        //console.error(e);
+     this._alertCtrl.create({
+       title:'Falha ao registrar',
+       subTitle: e,
+       buttons : [
+         {text: 'OK'}
+       ]
+     }).present();
     }
-    }
+    ); 
+   }
   }
 
 

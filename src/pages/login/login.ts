@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { User } from '../../modelos/user';
-import { HomePage } from '../home/home';
+
 import { TabsPage } from '../tabs/tabs';
+import { AuthProvider } from '../../providers/auth/auth';
 
 
 
@@ -18,10 +19,11 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              private afAuth: AngularFireAuth,
-              private _alertCtrl: AlertController) {
+              private afAuth: AuthProvider,
+              private _alertCtrl: AlertController
+  ){
   }
-  async login(user: User) {
+ /* async login(user: User) {
     try {
       const result = this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
       if (result) {
@@ -38,8 +40,27 @@ export class LoginPage {
       }).present();
     }
   }
+*/
+login(user:User){
+ this.afAuth.login(this.user)
+ .then((user: User) =>{
+  this.navCtrl.setRoot(TabsPage);
+  
+ })
+ .catch((e) => {
+     //console.error(e);
+  this._alertCtrl.create({
+    title:'Falha no Login',
+    subTitle: e,
+    buttons : [
+      {text: 'OK'}
+    ]
+  }).present();
+ }
+ ); 
+}
 
-  register() {
+register() {
     this.navCtrl.push('RegisterPage');
   }
 }

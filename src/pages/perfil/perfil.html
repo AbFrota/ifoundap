@@ -1,0 +1,45 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>perfil</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<!--<ion-content padding>
+  <div *ngIf="user != null">
+    <h3>Bem vindo: {{ user.email }}</h3>
+    <br>
+    <br>
+    <button ion-button block  (click)="Sair()">Sair</button>
+  </div>
+</ion-content> -->
+<ion-content>
+  <ion-item no-lines>
+    <div class="avatar-wrapper">
+      <ion-avatar>
+        <img src= "assets/imgs/biavatar.jpeg">
+      </ion-avatar>
+   <button class="btn-tirar-foto" ion-button icon-only round  >
+     <ion-icon name="camera"></ion-icon>
+   </button>
+  </div>
+  </ion-item> 
+  <ion-card>
+ 
+  <ion-item>
+    <ion-icon name="contact" item-left></ion-icon>
+    FeatrizBrota
+  </ion-item>
+  <ion-item>
+    <ion-icon name="at" item-left></ion-icon>
+   
+  </ion-item>
+  <ion-item>
+    <ion-icon name="search" item-left></ion-icon>
+    Minhas Buscas
+  </ion-item>
+</ion-card>
+
+<button ion-button full (click)="usuarioLogado()">Sair</button>
+
+</ion-content>

@@ -7,6 +7,7 @@ import { FirebaseServiceProvider } from '../../providers/firebase-service/fireba
 import { VisualizarItemPage } from '../visualizar-item/visualizar-item';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { ToastrServiceProvider } from '../../providers/toastr-service/toastr-service';
+import { LoginPage } from '../login/login';
 
 @Component({
   selector: 'page-home',
@@ -39,9 +40,10 @@ export class HomePage {
   ionViewDidLoad() {
     this.afAuth.authState.subscribe(data => {
       if (data && data.email && data.uid) {
-        this.toastrService.show('Bem Vindo!', 6000)
+        this.toastrService.show('Bem Vindo!', 4000)
                         .present();
       } else {
+        this.navCtrl.push(LoginPage);
         this.toastrService.show('Usuário não encontrado!', 3000)
         .present();
       }
