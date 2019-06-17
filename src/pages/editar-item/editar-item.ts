@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FirebaseServiceProvider } from '../../providers/firebase-service/firebase-service';
 import { ToastrServiceProvider } from '../../providers/toastr-service/toastr-service';
 import { HomePage } from '../home/home';
+import { Item } from '../../modelos/ItemInterface';
 
 
 @IonicPage()
@@ -12,15 +13,7 @@ import { HomePage } from '../home/home';
 })
 export class EditarItemPage {
 
-  item = {  
-    //'categorias' : '',
-    'nome': '',
-   'desc': '',
-    'data': '',
-    'local':'',
-   'fotos': '',
-   'perdido':'', 
- };
+  item = {} as Item;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -28,6 +21,7 @@ export class EditarItemPage {
     public toastrService: ToastrServiceProvider
   ) {
     this.item = this.navParams.get('item');
+    this.item =this.navParams.get('itemSelecionado');
   }
 
   update(item) {

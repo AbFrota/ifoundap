@@ -1,0 +1,30 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>editarPerfil</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<ion-item>
+  <ion-label floating >Username</ion-label>
+  <ion-input [(ngModel)]="perfil.username"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label floating >Nome</ion-label>
+  <ion-input [(ngModel)]="perfil.nome"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label floating >Sobrenome</ion-label>
+  <ion-input [(ngModel)]="perfil.sobrenome"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label floating >Cidade</ion-label>
+  <ion-input [(ngModel)]="perfil.cidade"></ion-input>
+</ion-item>
+
+<button ion-button clear block (click)="criarPerfil()">Criar Perfil</button>
+</ion-content>

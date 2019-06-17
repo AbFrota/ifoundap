@@ -1,3 +1,18 @@
 page-cadastro-item {
+    .wrap {
+        position: relative;
+        width: 200px;
+        margin: auto;
+
+        ion-icon {
+            font-size: 100px; //Preferred size here
+        }
+
+        .btn {
+            width: 200px;
+            height: 200px;
+        
+        } 
+    }
 
 }

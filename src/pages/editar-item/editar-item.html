@@ -1,36 +1,27 @@
 
 <ion-header>
   <ion-navbar>
-    <ion-title>Editar </ion-title>
+    <ion-title>Informar </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <ion-list>
-    <ion-item>
-      <ion-label fixed>Titulo</ion-label>
-      <ion-input type="text" [(ngModel)]="item.nome"></ion-input>
+   <ion-item color="light">
+      <ion-label fixed>Informações</ion-label>
+      <ion-input type="text" [(ngModel)]="item.notas"></ion-input>
+    </ion-item>
+<span>Informe aqui em qual ponto de entrega o item se encontra: </span>
+    <ion-item color="light">
+      <ion-label>Localização Atual:</ion-label>
+      <ion-select [(ngModel)]="item.pontoEntg" placeholder="Select One">
+        <ion-option value="Sala B15 - Achados e Perdidos - EST">Sala B15 - Achados e Perdidos - EST</ion-option>
+        <ion-option value="CDC - EST">CDC - EST</ion-option>
+  
+      </ion-select>
     </ion-item>
 
-    <ion-item>
-      <ion-label fixed>Descrição</ion-label>
-      <ion-input type="text" [(ngModel)]="item.desc"></ion-input>
-    </ion-item>
 
-    <ion-item>
-      <ion-label fixed>Data</ion-label>
-      <ion-input type="date" [(ngModel)]="item.data" displayFormat="DD/MM/YY"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label fixed>Localização</ion-label>
-      <ion-input type="text" [(ngModel)]="item.local"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label fixed>Fotos</ion-label>
-      <ion-input type="text" [(ngModel)]="item.fotos"></ion-input>
-    </ion-item>
 
     <button ion-button full (click)="update(item)">Atualizar </button>
 

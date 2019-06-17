@@ -3,6 +3,8 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { Item } from '../../modelos/ItemInterface';
 import { FirebaseApp } from 'angularfire2';
 import * as firebase from 'firebase';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { Perfil } from '../../modelos/perfil';
 
 
 
@@ -10,8 +12,11 @@ import * as firebase from 'firebase';
 @Injectable()
 export class FirebaseServiceProvider {
 
+
+
   constructor(public db: AngularFireDatabase,
-              private fb: FirebaseApp) {
+              private fb: FirebaseApp,
+              private afAuth: AngularFireAuth) {
 
   }
 
@@ -59,4 +64,7 @@ export class FirebaseServiceProvider {
   remove(item) {
     return this.db.list('itens').remove(item.key);
   }
+
+ 
+
 }

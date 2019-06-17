@@ -26,6 +26,12 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { RegisterPage } from '../pages/register/register';
 import { RegisterPageModule } from '../pages/register/register.module';
 import { PerfilPage } from '../pages/perfil/perfil';
+import { EditarPerfilPage } from '../pages/editar-perfil/editar-perfil';
+import { AngularFireObject } from "angularfire2/database";
+
+import 'rxjs/add/operator/take';
+import { Vibration } from '@ionic-native/vibration/ngx';
+
 
 
 @NgModule({
@@ -38,6 +44,7 @@ import { PerfilPage } from '../pages/perfil/perfil';
     PerfilPage,
     VisualizarItemPage,
     EditarItemPage,
+    EditarPerfilPage,
     CadastroItemPage,
     TabsPage
   ],
@@ -65,6 +72,7 @@ import { PerfilPage } from '../pages/perfil/perfil';
     ContactPage,
     HomePage,
     RegisterPage,
+    EditarPerfilPage,
     LoginPage,
     PerfilPage,
     VisualizarItemPage,
@@ -78,7 +86,7 @@ import { PerfilPage } from '../pages/perfil/perfil';
     FirebaseServiceProvider,
     ToastrServiceProvider,
     CameraProvider,
-    ImagePicker,
+    Vibration,
     AuthProvider
   ]
 })

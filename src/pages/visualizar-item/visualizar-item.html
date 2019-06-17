@@ -1,6 +1,6 @@
 
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Detalhes</ion-title>
   </ion-navbar>
 </ion-header>
@@ -9,36 +9,55 @@
 
   <ion-slides pager="true">
     <ion-slide >
-      <img src= "assets/imgs/borrado.png" />
+      <img src= {{item.fotos}} />
     </ion-slide>
   </ion-slides>
 
   
     <ion-item-group> 
-        <ion-item-divider item-center  text-wrap color="light">
+        <ion-item-divider item-center  text-wrap color="dark">
            <h1> {{item.nome}}</h1>
-         <ion-item color="light">
-            <span item-left>{{item.data}} </span>
+         <ion-item color="dark">
+            <span>{{item.data}} </span>
          </ion-item>  
         
         </ion-item-divider>
         
-        <ion-item>
+        <ion-item color="light">
             <ion-label text-wrap>{{item.desc}} </ion-label>
         </ion-item> 
-        <ion-item item-left>Categoria</ion-item>
-        <ion-item item-left>Tipo de Busca</ion-item> 
-    
+        <ion-item color="light">
+            <ion-label item-left text-wrap  color="primary">Categoria: </ion-label>
+            <ion-label item-right text-wrap>{{item.categ}}</ion-label>
+        </ion-item> 
+
+        <ion-item color="light">
+            <ion-label item-left text-wrap  color="primary">Loalização da Ocorrência: </ion-label>
+            <ion-label item-right text-wrap >{{item.local}}</ion-label>
+        </ion-item> 
+
+        <ion-item color="light">
+            <ion-label item-left text-wrap  color="primary">Localização Atual: </ion-label>
+            <ion-label item-right text-wrap >{{item.pontoEntg}}</ion-label>
+        </ion-item> 
+
+
+        
     </ion-item-group>
 
+    <ion-label  text-wrap  color="primary">Comentarios: </ion-label>
+    <ion-item color="light">
+        <ion-label  text-wrap >{{item.notas}}</ion-label>
+    </ion-item>   
 
 
 
-    <ion-item-group>
-        <ion-item-divider color="light">
+<span>Postado por:</span>
+    <ion-item-group >
+        <ion-item-divider color="dark">
             
               <ion-avatar item-start>
-                  <img src="assets/imgs/marty-avatar.png">
+                  <img src="assets/imgs/biavatar.jpeg">
                 </ion-avatar>
                 <h2>Featriz Brota</h2>
                 
@@ -50,12 +69,5 @@
 </ion-content>
 
   <ion-footer>
-      <ion-row>
-          <ion-col no-padding>
-              <button no-margin ion-button block color="light">Entregar</button>
-          </ion-col>
-          <ion-col no-padding>
-              <button no-margin ion-button block color="danger">Informar</button>
-          </ion-col>
-      </ion-row>
+      <button no-margin ion-button block color="primary" (click)="selecionaItem(item)">Informar</button>
   </ion-footer>

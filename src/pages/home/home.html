@@ -1,10 +1,17 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>iFound</ion-title>
   </ion-navbar>
+  <ion-toolbar color="dark">
+      <ion-searchbar></ion-searchbar>
+    </ion-toolbar>
+
 </ion-header>
 
+
+
 <ion-content padding>
+
  <!--   <ion-list>
       <button ion-item *ngFor="let item of itens|async" (click)="selecionaItem(item)">
        <h1> {{item.nome}}</h1> 
@@ -14,10 +21,8 @@
 -->
     <ion-item [class.perdido]="!item.perdido" *ngFor="let item of itens|async" (click)="selecionaItem(item)" >
       <ion-thumbnail item-start>
-      <img src="assets/imgs/borrado.png">
+      <img src={{item.fotos}}>
       </ion-thumbnail>
-    
-     
       <h1 text-wrap > {{item.nome}} </h1>
       <p text-wrap> {{item.desc}}</p>
    

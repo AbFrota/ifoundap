@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { FirebaseServiceProvider } from '../../providers/firebase-service/firebase-service';
 import { Item } from '../../modelos/ItemInterface';
 import { HomePage } from '../home/home';
 import { ToastrServiceProvider } from '../../providers/toastr-service/toastr-service';
-import { ImagePicker } from '@ionic-native/image-picker'
+import { Vibration } from '@ionic-native/vibration/ngx';
+//import {  VibrationOriginal } from '@ionic-native/vibration'
 
 
 
@@ -22,8 +23,10 @@ export class CadastroItemPage {
   'desc': '',
    'data': '',
    'local':'',
-  'fotos': 'assets/imgs/borrado.png , assets/imgs/imagem.png ',
-  'perdido':'', 
+  'fotos': 'assets/imgs/image.png',
+  'perdido':'',
+  'categ': '',
+  'pontoEntg': 'Perdido', 
   //'fileToUpload': '',
   //'imgPath' :'',
 };
@@ -31,71 +34,40 @@ export class CadastroItemPage {
     constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
+    private _alertCtrl: AlertController,
     public dbService: FirebaseServiceProvider,
     public toastrService: ToastrServiceProvider,
+   // private _vibration:Vibration
    // private imagePicker: ImagePicker,
     ) {
     }
 
-    ionViewDidLoad() {
-    console.log('ionViewDidLoad SavePage');
+    change(){
+      console.log(this.item.perdido);
     }
-
  
 
     save(item: Item) {
+
+      //this._vibration.vibrate(500);
+
+      if (!item.nome || !item.desc || !item.local) {
+        this._alertCtrl.create({
+          title: 'Preenchimento obrigatório',
+          subTitle: 'Preencha todos os campos!',
+          buttons: [
+            { text: 'ok' }
+          ]
+        }).present();
+        return;
+      }
+
     this.dbService.save(item)
-    this.toastrService.show('Cadastrado com sucesso!', 5000)
+    this.toastrService.show('Cadastrado com sucesso!', 3000)
                         .present();
 
       this.navCtrl.setRoot(HomePage);
     }
 
-   /* pegarImagem() {
-      this.imagePicker.getPictures({
-        maximumImagesCount: 1, //Apenas uma imagem
-        outputType: 1 //BASE 64
-      })
-        .then(results => {
-          if (results.length > 0) {
-            this.item.imgPath = 'data:image/png;base64,' + results[0];
-            this.item.fileToUpload = results[0];
-          } else {
-            this.item.imgPath = '';
-            this.item.fileToUpload = null;
-          }
-        })
-        .catch(error => {
-          console.error('Erro ao recuperar a imagem', error);
-        });
-    }
-
-    escolherFoto() {
-      this.imagePicker.hasReadPermission()
-        .then(hasPermission => {
-          if (hasPermission) {
-            this.pegarImagem();
-          } else {
-            this.solicitarPermissao();
-          }
-        }).catch(error => {
-          console.error('Erro ao verificar permissão', error);
-        });
-    }
-
-    solicitarPermissao() {
-      this.imagePicker.requestReadPermission()
-        .then(hasPermission => {
-          if (hasPermission) {
-            this.pegarImagem();
-          } else {
-            console.error('Permissão negada');
-          }
-        }).catch(error => {
-          console.error('Erro ao solicitar permissão', error);
-        });
-    }
-  */
-
-
+   
 }

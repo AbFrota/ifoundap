@@ -5,8 +5,8 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
-    <ion-title>register</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>Cadastro</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -17,11 +17,15 @@
           <ion-input type="text" [(ngModel)]="user.email"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label>Password</ion-label>
+          <ion-label>Senha</ion-label>
           <ion-input type="password" [(ngModel)]="user.password"></ion-input>
         </ion-item>
+        <ion-item>
+            <ion-label>Confirmação de senha </ion-label>
+            <ion-input type="password"></ion-input>
+          </ion-item>     
       </ion-list>
       <div text-center>
-        <button ion-button (click)="register(user)">Register</button>
+        <button ion-button block (click)="register(user)">Proximo</button>
       </div>
 </ion-content>

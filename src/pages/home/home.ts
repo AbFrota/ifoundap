@@ -6,14 +6,18 @@ import { FirebaseServiceProvider } from '../../providers/firebase-service/fireba
 //import { EditarItemPage } from '../editar-item/editar-item';
 import { VisualizarItemPage } from '../visualizar-item/visualizar-item';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { FirebaseObjectObservable} from 'angularfire2/database-deprecated';
 import { ToastrServiceProvider } from '../../providers/toastr-service/toastr-service';
 import { LoginPage } from '../login/login';
+import { Perfil } from '../../modelos/perfil';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
+
+  perfilData:FirebaseObjectObservable<Perfil>;
   
   private itens;
 
@@ -38,16 +42,19 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-    this.afAuth.authState.subscribe(data => {
+    this.afAuth.authState.take(1).subscribe(data => {
       if (data && data.email && data.uid) {
-        this.toastrService.show('Bem Vindo!', 4000)
+        this.toastrService.show( 'Bem Vindo!',4000)
                         .present();
+       
+                    
       } else {
         this.navCtrl.push(LoginPage);
         this.toastrService.show('Usuário não encontrado!', 3000)
         .present();
       }
     });
+
   } 
 
  /* add(){
@@ -58,7 +65,6 @@ export class HomePage {
     }
 */
   selecionaItem(item : Item){
-    console.log(item);
     this.navCtrl.push(VisualizarItemPage, {
       itemSelecionado: item
     }); // empilhamento de página

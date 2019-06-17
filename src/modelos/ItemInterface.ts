@@ -3,9 +3,11 @@ export interface Item {
     desc: string;
     fotos: string[];
   //  key:  string;
-   // categorias: [];
+    categ:string;
     data: string ;
     local: string;
+    pontoEntg: string;
+    notas:string
     perdido: boolean;
 //  enviado: boolean;
 }

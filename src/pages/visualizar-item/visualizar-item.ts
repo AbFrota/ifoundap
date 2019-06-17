@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Item } from '../../modelos/ItemInterface';
+import { EditarItemPage } from '../editar-item/editar-item';
 
 
 
@@ -21,8 +22,9 @@ export class VisualizarItemPage {
     this.item =this.navParams.get('itemSelecionado');
   }
 
-  ionViewDidLoad() {
-
+  selecionaItem(item : Item){
+    this.navCtrl.push(EditarItemPage, {
+      itemSelecionado: item
+    }); // empilhamento de página
   }
-
 }

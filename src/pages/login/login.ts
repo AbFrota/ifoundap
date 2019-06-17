@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-import { AngularFireAuth } from 'angularfire2/auth';
+//import { AngularFireAuth } from 'angularfire2/auth';
 import { User } from '../../modelos/user';
 
-import { TabsPage } from '../tabs/tabs';
+//import { TabsPage } from '../tabs/tabs';
 import { AuthProvider } from '../../providers/auth/auth';
+//import { PerfilPage } from '../perfil/perfil';
+import { EditarPerfilPage } from '../editar-perfil/editar-perfil';
+import { HomePage } from '../home/home';
+import { TabsPage } from '../tabs/tabs';
 
 
 

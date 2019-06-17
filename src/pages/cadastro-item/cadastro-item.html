@@ -1,7 +1,7 @@
 
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Cadastro de Item</ion-title>
   </ion-navbar>
 
@@ -9,36 +9,65 @@
 
 
 <ion-content padding>
+  <div class="wrap">
+      <button class="btn" ion-button icon-only>
+          <ion-icon name="camera"></ion-icon>  
+      </button>
+  </div>
   <ion-list>
-      <ion-item>
-          <img src="{{ imgPath }}" alt="" />
-          <button ion-button block color="dark" (click)="escolherFoto()">Escolher foto</button>
-        </ion-item>
 
       <ion-item>
           <ion-label>Perdido</ion-label>
-          <ion-toggle [(ngModel)]="item.perdido" ion-change ></ion-toggle>
+          <ion-toggle [(ngModel)]="item.perdido" (ionChange) ="change()" ></ion-toggle>
         </ion-item>
 
       <ion-item>
-        <ion-label fixed>Titulo</ion-label>
+        <ion-label floating>Titulo*</ion-label>
         <ion-input type="text" [(ngModel)]="item.nome"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label fixed>Descrição</ion-label>
+        <ion-label floating>Descrição*</ion-label>
         <ion-input type="text" [(ngModel)]="item.desc"></ion-input>
       </ion-item>
 
+      
+  <ion-item>
+      <ion-label>Categorias</ion-label>
+      <ion-select [(ngModel)]="item.categ" placeholder="Select One">
+        <ion-option value="Eletrônicos e celulares">Eletrônicos e celulares</ion-option>
+        <ion-option value="Escritório">Escritório</ion-option>
+        <ion-option value="Artigos infantis">Artigos infantis</ion-option>
+        <ion-option value="Livros">Livros</ion-option>
+        <ion-option value="Roupas e calçados">Roupas e calçados</ion-option>
+        <ion-option value="Bolsas, malas e mochilas">Bolsas, malas e mochilas</ion-option>
+        <ion-option value="Música e hobbies">Música e hobbies</ion-option>
+        <ion-option value="Bijuterias, relógios e acessórios">Bijuterias, relógios e acessórios</ion-option>
+        <ion-option value="Documentos">Documentos</ion-option>
+        <ion-option value="Outros">Outros</ion-option>
+      </ion-select>
+    </ion-item>
+
+
       <ion-item>
-        <ion-label fixed>Data</ion-label>
-        <ion-input type="date" [(ngModel)]="item.data" displayFormat="DD/MM/YY"></ion-input>
+        <ion-label >Data</ion-label>
+        <ion-datetime [(ngModel)]="item.data" displayFormat="DD/MM/YY"></ion-datetime>
       </ion-item>
 
       <ion-item>
-        <ion-label fixed>Localização</ion-label>
+        <ion-label floating>Localização da Ocorrência*</ion-label>
         <ion-input type="text" [(ngModel)]="item.local"></ion-input>
       </ion-item>
+
+      <ion-item >
+          <ion-label>Localização Atual:</ion-label>
+          <ion-select [(ngModel)]="item.pontoEntg" placeholder="Select One">
+            <ion-option value="Sala B15 - Achados e Perdidos - EST">Sala B15 - Achados e Perdidos - EST</ion-option>
+            <ion-option value="CDC - EST">CDC - EST</ion-option>
+            <ion-option value="Perdido">Perdido</ion-option>
+      
+          </ion-select>
+        </ion-item>
       
 
       <ion-item>
@@ -47,8 +76,11 @@
       </ion-item>
 
 
-      <button ion-button full (click)="save(item)">Criar Item</button>
+     
 
   </ion-list>
 
 </ion-content>
+<ion-footer>
+    <button ion-button full (click)="save(item)">Criar Item</button>
+</ion-footer>

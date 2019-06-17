@@ -8,8 +8,8 @@
   </div>
   <div padding>
     <ion-list inset>
-        <ion-item>
-          <ion-label>Email</ion-label>
+        <ion-item class="label">
+          <ion-label >Email</ion-label>
           <ion-input type="text" [(ngModel)]="user.email"></ion-input>
         </ion-item>
         <ion-item>
@@ -19,6 +19,6 @@
       </ion-list>
       <div text-center>
           <button ion-button block type="submit" (click)="login(user)" class="login">ENTRAR</button>
-        <button ion-button color="light" (click)="register()">Cadastre-se</button>
+        <button class="register" ion-button  (click)="register()">Cadastre-se</button>
       </div>
 </div>
