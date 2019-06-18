@@ -5,6 +5,8 @@ import { Item } from '../../modelos/ItemInterface';
 import { HomePage } from '../home/home';
 import { ToastrServiceProvider } from '../../providers/toastr-service/toastr-service';
 import { Vibration } from '@ionic-native/vibration/ngx';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { database } from 'firebase';
 //import {  VibrationOriginal } from '@ionic-native/vibration'
 
 
@@ -16,31 +18,40 @@ import { Vibration } from '@ionic-native/vibration/ngx';
 })
 export class CadastroItemPage {
 
-   
+
   item = {  
-   //'categorias' : '',
-   'nome': '',
-  'desc': '',
-   'data': '',
-   'local':'',
-  'fotos': 'assets/imgs/image.png',
-  'perdido':'',
-  'categ': '',
-  'pontoEntg': 'Perdido', 
-  //'fileToUpload': '',
-  //'imgPath' :'',
-};
+    'nome': '',
+   'desc': '',
+    'data': '',
+    'local':'',
+   'fotos': 'assets/imgs/image.png',
+   'perdido':'',
+   'categ': '',
+   'pontoEntg': 'Perdido', 
+   'user': '',
+   //'fileToUpload': '',
+   //'imgPath' :'',
+ };     
+
   
     constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
+    private afAuth: AngularFireAuth,
     private _alertCtrl: AlertController,
     public dbService: FirebaseServiceProvider,
     public toastrService: ToastrServiceProvider,
    // private _vibration:Vibration
    // private imagePicker: ImagePicker,
     ) {
-    }
+
+}
+
+ 
+
+
+
+
 
     change(){
       console.log(this.item.perdido);
@@ -48,7 +59,11 @@ export class CadastroItemPage {
  
 
     save(item: Item) {
-
+      this.afAuth.authState.take(1).subscribe(data => {
+        if (data && data.email && data.uid) {
+          item.user = data.email        
+        }
+      });
       //this._vibration.vibrate(500);
 
       if (!item.nome || !item.desc || !item.local) {
@@ -61,8 +76,9 @@ export class CadastroItemPage {
         }).present();
         return;
       }
-
+     
     this.dbService.save(item)
+    console.log(this.item);
     this.toastrService.show('Cadastrado com sucesso!', 3000)
                         .present();
 

@@ -30,7 +30,7 @@ export class RegisterPage {
   register(user:User){
     this.afAuth.register(this.user)
     .then((user: User) =>{
-     this.navCtrl.setRoot(EditarPerfilPage);
+     this.navCtrl.push(EditarPerfilPage);
      
     })
     .catch((e) => {

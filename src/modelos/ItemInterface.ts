@@ -7,7 +7,8 @@ export interface Item {
     data: string ;
     local: string;
     pontoEntg: string;
-    notas:string
+    notas:string[];
     perdido: boolean;
+    user: string;
 //  enviado: boolean;
 }
